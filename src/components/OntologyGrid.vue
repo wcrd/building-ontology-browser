@@ -65,6 +65,7 @@ setup() {
     // Each Column Definition results in one Column.
     const columnDefs = reactive({
         value: [
+            { field: "desc"},
             { field: "uri" },
             { field: "namespace" },
             { field: "prefix" },
@@ -80,28 +81,34 @@ setup() {
     };
 
     const getDataPath = (data) => {
-            const raw = data.path.agGridPath;
-            // remove last item (need to do this as the path has the actual item itself)
-            // Array.prototype.pop(raw);
+            // const raw = data.path.agGridPath;
+            const raw = data.path.full; // this should help with duplicates. Will then use a formatter function to display term only.
 
-            // Add unique ID to path for leaf
-            // raw.push(data.term + data.idx)
             
             return raw
     }
 
     const classValueGetter = (params) => {
+        // SET ICON
         let icon = "❔" //🧱 🟢 ❔
         try {
             if(params.data.prefix == "brick") {
                 icon = "🧱"
             } else if (params.data.prefix == "switch") {
                 icon = "🟢"
+            } else if (params.data.prefix == "owl") {
+                icon = "🦉"
             }
-
-            return `${data.params.term} ${icon}`
+            
         } catch {
-            return `${params.value} ${icon}`
+            console.log(`Grid::Class: No icon for given namespace of: ${params.value}`)
+        }
+        // SET NAME (TERM)
+        try {
+            return `${params.data.term} &nbsp; ${icon}`
+        } catch {
+            console.log(`Grid::Class: No term available for: ${params.value}`)
+            return `${params.value} &nbsp; ${icon}`
         }
     }
     // Example load data from sever

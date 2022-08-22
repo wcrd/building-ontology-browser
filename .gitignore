@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
+# Firebase
+.firebase
+
 # Personal
 TODO.md

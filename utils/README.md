@@ -65,3 +65,20 @@ We can achieve the above using an expression similar to:
 ```python
 filter(lambda x: x in [rdflib.OWL.Class, rdflib.OWL.ObjectProperty], s_class)
 ```
+
+
+#### Clean-up
+Some brick definitions are subclasses of both brick classes (what we want) AND other classes from other ontologies (which we don't want). These other ontologies typically represent physics or graph type classification information that is not relevant to our uses on this website. The multiple parentage results in split pathways that clutter our hierarchy. The external class pathways we want to remove are:
+* sosa:ObservableProperty
+* sosa:FeatureOfInterest
+* skos:Concept
+  
+These classes are where pathways will terminate (as we can't ever traverse further than them is we only use the Brick and Switch ontologies because the definitions for them are not included, hence we cannot traverse past them). This makes it quite simple for us to filter them out of the final dataset:
+
+```python
+# Some split pathways end at sosa:ObservableProperty, sosa:FeatureOfInterest, skos:Concept. We are not interested in these and are going to remove objects that terminate there.
+final_data = [item for item in data if item['path']['full'][0] not in [rdflib.SSN.ObservableProperty, rdflib.SSN.FeatureOfInterest, rdflib.SKOS.Concept]]
+```
+
+In addition, all Brick Relationship definitions are a subclass of owl:ObjectProperty (as stated in section above). As per prior cleanup section, we do not include the ontology files for these other ontologies and thus we will not resolve the 'term', 'namespace', 'description' etc fields that we provide for the other class records in the final data object. In order to make this look good on the workspace we are just going to manually inject the appropriate objects for the following external classes:
+1. owl:ObjectProperty
