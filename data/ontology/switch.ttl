@@ -8,7 +8,7 @@
 
 switch: a owl:Ontology ;
     rdfs:label "Brick-SwitchExtension" ;
-    dcterms:version "1.1.5" ;
+    dcterms:version "1.1.6" ;
     skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
 
 switch:Active_Chilled_Beam a owl:Class ;
@@ -1364,7 +1364,7 @@ switch:Max_Zone_Air_CO2_Sensor a owl:Class ;
 
 switch:Max_Zone_Air_Humidity_Setpoint a owl:Class ;
     rdfs:label "Max Zone Air Humidity Setpoint" ;
-    rdfs:subClassOf brick:Air_Humidity_Setpoint ;
+    rdfs:subClassOf brick:Humidity_Setpoint ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Air,
         tag:Humidity,
@@ -1396,7 +1396,7 @@ switch:Min_Discharge_Air_Fan_Speed_Setpoint a owl:Class ;
 
 switch:Min_Zone_Air_Humidity_Setpoint a owl:Class ;
     rdfs:label "Min Zone Air Humidity Setpoint" ;
-    rdfs:subClassOf brick:Air_Humidity_Setpoint ;
+    rdfs:subClassOf brick:Humidity_Setpoint ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Air,
         tag:Humidity,
@@ -2170,16 +2170,6 @@ switch:hasTagCollection a owl:AsymmetricProperty,
         owl:ObjectProperty ;
     skos:definition "A collection holding Tag-tag value (k-v) pairs representing free form tags on entities" .
 
-switch:isMonitoredBy a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    skos:definition "The subject is monitored by another entity. E.g. a 'Camera' monitors an area/entity; an 'Occupancy Sensor' can monitor a 'Desk'; etc" .
-
-switch:monitors a owl:AsymmetricProperty,
-        owl:IrreflexiveProperty,
-        owl:ObjectProperty ;
-    skos:definition "The subject observes/measures some property on another entity. E.g. a 'Camera' monitors an area/entity; an 'Occupancy Sensor' can monitor a 'Desk'; etc" .
-
 tag:AB a brick:Tag ;
     rdfs:label "AB" .
 
@@ -2541,6 +2531,18 @@ switch:Water_Source_Heat_Pump a owl:Class ;
         tag:Source,
         tag:Water .
 
+switch:isMonitoredBy a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    owl:inverseOf switch:monitors ;
+    skos:definition "The subject is monitored by another entity. E.g. a 'Camera' monitors an area/entity; an 'Occupancy Sensor' can monitor a 'Desk'; etc" .
+
+switch:monitors a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    owl:inverseOf switch:isMonitoredBy ;
+    skos:definition "The subject observes/measures some property on another entity. E.g. a 'Camera' monitors an area/entity; an 'Occupancy Sensor' can monitor a 'Desk'; etc" .
+
 tag:A a brick:Tag ;
     rdfs:label "A" .
 
@@ -2780,9 +2782,6 @@ tag:Cooling a brick:Tag ;
 
 tag:Isolation a brick:Tag ;
     rdfs:label "Isolation" .
-
-tag:Refrigerant a brick:Tag ;
-    rdfs:label "Refrigerant" .
 
 tag:Phase a brick:Tag ;
     rdfs:label "Phase" .
