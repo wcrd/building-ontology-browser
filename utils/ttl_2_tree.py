@@ -3,6 +3,8 @@
 This script processes a ttl file and builds a ag-grid formatted tree view data source
 '''
 
+#### NOT IN USE / NOT COMPLETE
+
 import rdflib
 
 ## INPUT FILES
