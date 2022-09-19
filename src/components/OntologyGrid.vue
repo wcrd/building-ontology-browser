@@ -66,7 +66,7 @@ setup() {
     const columnDefs = reactive({
         value: [
             { field: "desc"},
-            { field: "uri" },
+            { field: "uri", hide: true },
             { field: "namespace" },
             { field: "prefix" },
             // { field: "term" }
@@ -76,8 +76,9 @@ setup() {
     // DefaultColDef sets props common to all Columns
     const defaultColDef = {
         sortable: true,
-        filter: true,
-        flex: 1
+        // filter: 'agTextColumnFilter',
+        flex: 1,
+        resizable: true
     };
 
     const getDataPath = (data) => {
@@ -153,7 +154,9 @@ setup() {
                 cellRendererParams: {
                     suppressCount: true,
                     innerRenderer: classValueGetter
-                }
+                },
+                filter: 'agTextColumnFilter',
+                resizable: true
         },
         onFilterTextBoxChanged,
         collapseRows,
