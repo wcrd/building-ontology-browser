@@ -10,7 +10,7 @@ switch: a owl:Class,
         owl:Ontology ;
     rdfs:label "",
         "Brick-SwitchExtension" ;
-    dcterms:version "1.1.7" ;
+    dcterms:version "1.1.8" ;
     rdfs:subClassOf brick: ;
     skos:definition "",
         "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" ;
@@ -608,6 +608,15 @@ switch:Condenser_Water_System a owl:Class ;
         tag:System,
         tag:Water .
 
+switch:Cooling_Call_Count_Sensor a owl:Class ;
+    rdfs:label "Cooling Call Count Sensor" ;
+    rdfs:subClassOf switch:Count_Sensor ;
+    skos:definition "Number of cooling calls/flags/requests AIRSIDE or WATERSIDE equip has received" ;
+    brick:hasAssociatedTag tag:Call,
+        tag:Cooling,
+        tag:Count,
+        tag:Sensor .
+
 switch:Cooling_Call_Enable_Status a owl:Class ;
     rdfs:label "Cooling Call Enable Status" ;
     rdfs:subClassOf brick:Enable_Status ;
@@ -650,16 +659,6 @@ switch:Cooling_Tower a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Cooling,
         tag:Tower .
-
-switch:Cooling__Call_Count_Sensor a owl:Class ;
-    rdfs:label "Cooling  Call Count Sensor" ;
-    rdfs:subClassOf switch:Count_Sensor ;
-    skos:definition "Number of cooling calls/flags/requests AIRSIDE or WATERSIDE equip has received" ;
-    brick:hasAssociatedTag tag:,
-        tag:Call,
-        tag:Cooling,
-        tag:Count,
-        tag:Sensor .
 
 switch:Count_Status a owl:Class ;
     rdfs:label "Count Status" ;
@@ -743,6 +742,14 @@ switch:Dehumidification_On_Off_Command a owl:Class ;
         tag:Dehumidification,
         tag:Off,
         tag:On .
+
+switch:Differential_Temperature_Sensor a owl:Class ;
+    rdfs:label "Differential Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Differential,
+        tag:Sensor,
+        tag:Temperature .
 
 switch:Discharge_Air_Damper_Position_Command a owl:Class ;
     rdfs:label "Temporary point class created for a flat tree structure. Point will be nested in next model revision. Discharge Air Damper Position Command" ;
@@ -909,6 +916,13 @@ switch:Discharge_Air_Velocity_Sensor a owl:Class ;
         tag:Discharge,
         tag:Sensor,
         tag:Velocity .
+
+switch:Discharge_Damper a owl:Class ;
+    rdfs:label "Discharge Air Damper" ;
+    rdfs:subClassOf brick:Damper ;
+    skos:definition "A damper that modulates the flow of discharge air." ;
+    brick:hasAssociatedTag tag:Damper,
+        tag:Discharge .
 
 switch:Domestic_Cold_Water_System a owl:Class ;
     rdfs:label "Domestic Cold Water System" ;
@@ -2409,26 +2423,26 @@ switch:Zone_Air_Temperature_Occupied_Heating_Setpoint a owl:Class ;
         tag:Temperature,
         tag:Zone .
 
-switch:Zone_Air_Temperature_Unnocupied_Cooling_Setpoint a owl:Class ;
-    rdfs:label "Zone Air Temperature Unnocupied Cooling Setpoint" ;
+switch:Zone_Air_Temperature_Unoccupied_Cooling_Setpoint a owl:Class ;
+    rdfs:label "Zone Air Temperature Unoccupied Cooling Setpoint" ;
     rdfs:subClassOf brick:Unoccupied_Air_Temperature_Cooling_Setpoint ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Air,
         tag:Cooling,
         tag:Setpoint,
         tag:Temperature,
-        tag:Unnocupied,
+        tag:Unoccupied,
         tag:Zone .
 
-switch:Zone_Air_Temperature_Unnocupied_Heating_Setpoint a owl:Class ;
-    rdfs:label "Zone Air Temperature Unnocupied Heating Setpoint" ;
+switch:Zone_Air_Temperature_Unoccupied_Heating_Setpoint a owl:Class ;
+    rdfs:label "Zone Air Temperature Unoccupied Heating Setpoint" ;
     rdfs:subClassOf brick:Unoccupied_Air_Temperature_Heating_Setpoint ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Air,
         tag:Heating,
         tag:Setpoint,
         tag:Temperature,
-        tag:Unnocupied,
+        tag:Unoccupied,
         tag:Zone .
 
 switch:Zone_Controller a owl:Class ;
@@ -2462,6 +2476,9 @@ switch:hasTagCollection a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
     skos:definition "A collection holding Tag-tag value (k-v) pairs representing free form tags on entities" .
+
+tag: a brick:Tag ;
+    rdfs:label "" .
 
 tag:AB a brick:Tag ;
     rdfs:label "AB" .
@@ -2868,9 +2885,6 @@ switch:monitors a owl:AsymmetricProperty,
     owl:inverseOf switch:isMonitoredBy ;
     skos:definition "The subject observes/measures some property on another entity. E.g. a 'Camera' monitors an area/entity; an 'Occupancy Sensor' can monitor a 'Desk'; etc" .
 
-tag: a brick:Tag ;
-    rdfs:label "" .
-
 tag:A a brick:Tag ;
     rdfs:label "A" .
 
@@ -2934,8 +2948,8 @@ tag:Secondary a brick:Tag ;
 tag:Stage a brick:Tag ;
     rdfs:label "Stage" .
 
-tag:Unnocupied a brick:Tag ;
-    rdfs:label "Unnocupied" .
+tag:Unoccupied a brick:Tag ;
+    rdfs:label "Unoccupied" .
 
 tag:Velocity a brick:Tag ;
     rdfs:label "Velocity" .
@@ -3105,11 +3119,11 @@ tag:Exhaust a brick:Tag ;
 tag:High a brick:Tag ;
     rdfs:label "High" .
 
-tag:Differential a brick:Tag ;
-    rdfs:label "Differential" .
-
 tag:Mode a brick:Tag ;
     rdfs:label "Mode" .
+
+tag:Differential a brick:Tag ;
+    rdfs:label "Differential" .
 
 tag:Enable a brick:Tag ;
     rdfs:label "Enable" .
