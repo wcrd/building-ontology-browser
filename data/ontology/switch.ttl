@@ -8,7 +8,7 @@
 
 switch: a owl:Ontology ;
     rdfs:label "Brick-SwitchExtension" ;
-    dcterms:version "1.3.0" ;
+    dcterms:version "1.3.1" ;
     skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
 
 switch:AHU_On_Off_Status a owl:Class ;
@@ -342,6 +342,17 @@ switch:Average_Zone_Air_Humidity_Sensor a owl:Class ;
         tag:Sensor,
         tag:Zone .
 
+switch:Average_Zone_Air_Radon_Concentration_Sensor a owl:Class ;
+    rdfs:label "Average Zone Air Radon Concentration Sensor" ;
+    rdfs:subClassOf switch:Zone_Air_Radon_Concentration_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Average,
+        tag:Concentration,
+        tag:Radon,
+        tag:Sensor,
+        tag:Zone .
+
 switch:Average_Zone_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Average Zone Air Temperature Setpoint" ;
     rdfs:subClassOf brick:Zone_Air_Temperature_Setpoint ;
@@ -358,6 +369,14 @@ switch:Balancing_Valve a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Balancing,
         tag:Valve .
+
+switch:Battery_Level_Sensor a owl:Class ;
+    rdfs:label "Battery Level Sensor" ;
+    rdfs:subClassOf switch:Level_Sensor ;
+    skos:definition "Battery level 0-100%" ;
+    brick:hasAssociatedTag tag:Battery,
+        tag:Level,
+        tag:Sensor .
 
 switch:Bypass_Damper a owl:Class ;
     rdfs:label "Bypass Damper" ;
@@ -2897,6 +2916,14 @@ switch:Leaving_Temperature_Sensor a owl:Class ;
         tag:Sensor,
         tag:Temperature .
 
+switch:Light_Level_Sensor a owl:Class ;
+    rdfs:label "Light Level Sensor" ;
+    rdfs:subClassOf switch:Level_Sensor ;
+    skos:definition "Light level 0-100%; range definition by equipment manufacturer; typically found on IoT devices" ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Light,
+        tag:Sensor .
+
 switch:Line_Current_Load_Sensor a owl:Class ;
     rdfs:label "Line Current Load Sensor" ;
     rdfs:subClassOf brick:Sensor ;
@@ -3553,6 +3580,116 @@ switch:Outside_Air_Wetbulb_Temperature_Sensor a owl:Class ;
         tag:Temperature,
         tag:Wetbulb .
 
+switch:Outside_Ambient_Air_CO_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air CO Sensor" ;
+    rdfs:subClassOf brick:Outside_Air_CO_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:CO,
+        tag:Outside,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_Humidity_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air Humidity Sensor" ;
+    rdfs:subClassOf brick:Outside_Air_Humidity_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Humidity,
+        tag:Outside,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_NO2_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air NO2 Sensor" ;
+    rdfs:subClassOf switch:NO2_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:NO2,
+        tag:Outside,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_NO_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air NO Sensor" ;
+    rdfs:subClassOf switch:NO_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:NO,
+        tag:Outside,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_Ozone_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air Ozone Sensor" ;
+    rdfs:subClassOf switch:Ozone_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:Ozone,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_PM10_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air PM10 Sensor" ;
+    rdfs:subClassOf brick:PM10_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:PM10,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_PM1_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air PM1 Sensor" ;
+    rdfs:subClassOf brick:PM1_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:PM1,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_PM2.5_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air PM2.5 Sensor" ;
+    rdfs:subClassOf brick:PM2.5_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:PM2.5,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_Pressure_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air Pressure Sensor" ;
+    rdfs:subClassOf brick:Static_Pressure_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:Pressure,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_SO2_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air SO2 Sensor" ;
+    rdfs:subClassOf switch:SO2_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:SO2,
+        tag:Sensor .
+
+switch:Outside_Ambient_Air_Temperature_Sensor a owl:Class ;
+    rdfs:label "Outside Ambient Air Temperature Sensor" ;
+    rdfs:subClassOf brick:Outside_Air_Temperature_Sensor ;
+    skos:definition "External, independent weather variable. Typically retrieved through an API from a regional weather station." ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Ambient,
+        tag:Outside,
+        tag:Sensor,
+        tag:Temperature .
+
 switch:Outside_Fan a owl:Class ;
     rdfs:label "Outside Fan" ;
     rdfs:subClassOf brick:Fan ;
@@ -3841,6 +3978,27 @@ switch:Reactive_Power_Phase_C_Sensor a owl:Class ;
         tag:Power,
         tag:Reactive,
         tag:Sensor .
+
+switch:Received_Signal_Power_Sensor a owl:Class ;
+    rdfs:label "Received Signal Power Sensor" ;
+    rdfs:subClassOf switch:Signal_Strength_Sensor ;
+    skos:definition """See 'Received Signal Strength Indicator'. Standardized, absolute measure of signal strength: received signal power, which is measured in decibels, or dBm on a logarithmic scale. The closer to 0 dBm, the better the signal is.
+https://www.metageek.com/training/resources/understanding-rssi/""" ;
+    brick:hasAssociatedTag tag:Power,
+        tag:Received,
+        tag:Sensor,
+        tag:Signal .
+
+switch:Received_Signal_Strength_Indicator_Sensor a owl:Class ;
+    rdfs:label "Received Signal Strength Indicator Sensor" ;
+    rdfs:subClassOf switch:Signal_Strength_Sensor ;
+    skos:definition """RSSI is a term used to measure the relative quality of a received signal to a client device, but has no absolute value. The IEEE 802.11 standard (a big book of documentation for manufacturing Wi-Fi equipment) specifies that RSSI can be on a scale of 0 to up to 255 and that each chipset manufacturer can define their own “RSSI_Max” value. Cisco, for example, uses a 0-100 scale, while Atheros uses 0-60. It’s all up to the manufacturer (which is why RSSI is a relative index), but you can infer that the higher the RSSI value is, the better the signal is.
+https://www.metageek.com/training/resources/understanding-rssi/""" ;
+    brick:hasAssociatedTag tag:Indicator,
+        tag:Received,
+        tag:Sensor,
+        tag:Signal,
+        tag:Strength .
 
 switch:Refrigerant_Differential_Pressure_Sensor a owl:Class ;
     rdfs:label "Refrigerant Differential Pressure Sensor" ;
@@ -4134,6 +4292,27 @@ switch:Smoke_Exhaust_Fan a owl:Class ;
     brick:hasAssociatedTag tag:Exhaust,
         tag:Fan,
         tag:Smoke .
+
+switch:Sound_Pressure_Level_Sensor a owl:Class ;
+    rdfs:label "Sound Pressure Level Sensor" ;
+    rdfs:subClassOf switch:Sound_Sensor ;
+    skos:definition """The lowest sound pressure possible to hear is approximately 2 10-5 Pa (20 micro Pascal, 0.02 mPa) or 2 ten billionths of an atmosphere. This minimum audible level occurs normally between 3000 and 4000 Hz.
+
+For a normal human ear pain is experienced at a sound pressure of order 60 Pa or 6 10-4 atmospheres. 
+
+Due to this range it is convenient to express sound pressure with a logarithmic decibel scale related typically to the lowest human hearable sound - 2 10-5 Pa or 0 dB.""" ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Pressure,
+        tag:Sensor,
+        tag:Sound .
+
+switch:Sound_Pressure_Sensor a owl:Class ;
+    rdfs:label "Sound Pressure Sensor" ;
+    rdfs:subClassOf switch:Sound_Sensor ;
+    skos:definition "Sound Pressure is the sound force (N) acting on the surface area (m2) perpendicular to the direction of the sound. the SI-unit for sound pressure is Pa or N/m2" ;
+    brick:hasAssociatedTag tag:Pressure,
+        tag:Sensor,
+        tag:Sound .
 
 switch:Speed_Command a owl:Class ;
     rdfs:label "Speed Command" ;
@@ -4877,6 +5056,17 @@ switch:Zone_Air_Humidity_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Zone .
 
+switch:Zone_Air_Mold_Risk_Rating_Sensor a owl:Class ;
+    rdfs:label "Zone Air Mold Risk Rating Sensor" ;
+    rdfs:subClassOf switch:Mold_Risk_Rating_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Mold,
+        tag:Rating,
+        tag:Risk,
+        tag:Sensor,
+        tag:Zone .
+
 switch:Zone_Air_NO2_Level_Sensor a owl:Class ;
     rdfs:label "Zone Air NO2 Level Sensor" ;
     rdfs:subClassOf brick:NO2_Level_Sensor ;
@@ -4908,14 +5098,15 @@ switch:Zone_Air_Occupied_Cooling_Temperature_Setpoint a owl:Class ;
         tag:Temperature,
         tag:Zone .
 
-switch:Zone_Air_Occupied_Heating_TemperatureSetpoint a owl:Class ;
-    rdfs:label "Zone Air Occupied Heating TemperatureSetpoint" ;
+switch:Zone_Air_Occupied_Heating_Temperature_Setpoint a owl:Class ;
+    rdfs:label "Zone Air Occupied Heating Temperature Setpoint" ;
     rdfs:subClassOf brick:Heating_Temperature_Setpoint ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Air,
         tag:Heating,
         tag:Occupied,
-        tag:TemperatureSetpoint,
+        tag:Setpoint,
+        tag:Temperature,
         tag:Zone .
 
 switch:Zone_Air_Pressure_Sensor a owl:Class ;
@@ -4934,16 +5125,6 @@ switch:Zone_Air_Pressure_Setpoint a owl:Class ;
     brick:hasAssociatedTag tag:Air,
         tag:Pressure,
         tag:Setpoint,
-        tag:Zone .
-
-switch:Zone_Air_Radon_Concentration_Sensor a owl:Class ;
-    rdfs:label "Zone Air Radon Concentration Sensor" ;
-    rdfs:subClassOf brick:Radon_Concentration_Sensor ;
-    skos:definition "" ;
-    brick:hasAssociatedTag tag:Air,
-        tag:Concentration,
-        tag:Radon,
-        tag:Sensor,
         tag:Zone .
 
 switch:Zone_Air_Standby_Cooling_Temperature_Setpoint a owl:Class ;
@@ -5044,6 +5225,17 @@ switch:Zone_Air_Unoccupied_Heating_Temperature_Setpoint a owl:Class ;
         tag:Unoccupied,
         tag:Zone .
 
+switch:Zone_Air_Virus_Risk_Rating_Sensor a owl:Class ;
+    rdfs:label "Zone Air Virus Risk Rating Sensor" ;
+    rdfs:subClassOf switch:Virus_Risk_Rating_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Rating,
+        tag:Risk,
+        tag:Sensor,
+        tag:Virus,
+        tag:Zone .
+
 switch:Zone_Controller a owl:Class ;
     rdfs:label "Zone Controller" ;
     rdfs:subClassOf brick:Equipment ;
@@ -5121,9 +5313,6 @@ tag:Coefficienct a brick:Tag ;
 tag:Communication a brick:Tag ;
     rdfs:label "Communication" .
 
-tag:Concentration a brick:Tag ;
-    rdfs:label "Concentration" .
-
 tag:Connection a brick:Tag ;
     rdfs:label "Connection" .
 
@@ -5181,8 +5370,14 @@ tag:IAQ a brick:Tag ;
 tag:Index a brick:Tag ;
     rdfs:label "Index" .
 
+tag:Indicator a brick:Tag ;
+    rdfs:label "Indicator" .
+
 tag:Kitchen a brick:Tag ;
     rdfs:label "Kitchen" .
+
+tag:Light a brick:Tag ;
+    rdfs:label "Light" .
 
 tag:Maintenance a brick:Tag ;
     rdfs:label "Maintenance" .
@@ -5195,6 +5390,15 @@ tag:NG a brick:Tag ;
 
 tag:Net a brick:Tag ;
     rdfs:label "Net" .
+
+tag:PM1 a brick:Tag ;
+    rdfs:label "PM1" .
+
+tag:PM10 a brick:Tag ;
+    rdfs:label "PM10" .
+
+tag:PM2.5 a brick:Tag ;
+    rdfs:label "PM2.5" .
 
 tag:Pan a brick:Tag ;
     rdfs:label "Pan" .
@@ -5222,9 +5426,6 @@ tag:Primary a brick:Tag ;
 
 tag:Rack a brick:Tag ;
     rdfs:label "Rack" .
-
-tag:Radon a brick:Tag ;
-    rdfs:label "Radon" .
 
 tag:Rain a brick:Tag ;
     rdfs:label "Rain" .
@@ -5276,9 +5477,6 @@ tag:TVOC a brick:Tag ;
 
 tag:Tank a brick:Tag ;
     rdfs:label "Tank" .
-
-tag:TemperatureSetpoint a brick:Tag ;
-    rdfs:label "TemperatureSetpoint" .
 
 tag:Terminal a brick:Tag ;
     rdfs:label "Terminal" .
@@ -5503,11 +5701,13 @@ switch:Leaving_Water_Pressure_Sensor a owl:Class ;
         tag:Sensor,
         tag:Water .
 
-switch:Level_Sensor a owl:Class ;
-    rdfs:label "Level Sensor" ;
-    rdfs:subClassOf brick:Sensor ;
-    skos:definition "" ;
-    brick:hasAssociatedTag tag:Level,
+switch:Mold_Risk_Rating_Sensor a owl:Class ;
+    rdfs:label "Mold Risk Rating Sensor" ;
+    rdfs:subClassOf switch:Risk_Rating_Sensor ;
+    skos:definition "Risk of mold developing in given conditions" ;
+    brick:hasAssociatedTag tag:Mold,
+        tag:Rating,
+        tag:Risk,
         tag:Sensor .
 
 switch:NO2_Level_Setpoint a owl:Class ;
@@ -5518,12 +5718,33 @@ switch:NO2_Level_Setpoint a owl:Class ;
         tag:NO2,
         tag:Setpoint .
 
+switch:NO2_Sensor a owl:Class ;
+    rdfs:label "NO2 Sensor" ;
+    rdfs:subClassOf brick:Air_Quality_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:NO2,
+        tag:Sensor .
+
+switch:NO_Sensor a owl:Class ;
+    rdfs:label "NO Sensor" ;
+    rdfs:subClassOf brick:Air_Quality_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:NO,
+        tag:Sensor .
+
 switch:Offset_Setpoint a owl:Class ;
     rdfs:label "Offset Setpoint" ;
     rdfs:subClassOf brick:Setpoint ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Offset,
         tag:Setpoint .
+
+switch:Ozone_Sensor a owl:Class ;
+    rdfs:label "Ozone Sensor" ;
+    rdfs:subClassOf brick:Air_Quality_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Ozone,
+        tag:Sensor .
 
 switch:Phase_Current_Sensor a owl:Class ;
     rdfs:label "Phase Current Sensor" ;
@@ -5539,6 +5760,13 @@ switch:Power_Load_Sensor a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Load,
         tag:Power,
+        tag:Sensor .
+
+switch:Rating_Sensor a owl:Class ;
+    rdfs:label "Rating Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "Show the rating 'score' of a measure. Typically from software defined analytics or IoT sensors." ;
+    brick:hasAssociatedTag tag:Rating,
         tag:Sensor .
 
 switch:Recycled_Water_System a owl:Class ;
@@ -5594,6 +5822,13 @@ switch:Run_Count_Setpoint a owl:Class ;
         tag:Run,
         tag:Setpoint .
 
+switch:SO2_Sensor a owl:Class ;
+    rdfs:label "SO2 Sensor" ;
+    rdfs:subClassOf brick:Air_Quality_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:SO2,
+        tag:Sensor .
+
 switch:Valve_Position_Command a owl:Class ;
     rdfs:label "Valve Position Command" ;
     rdfs:subClassOf brick:Position_Command ;
@@ -5601,6 +5836,15 @@ switch:Valve_Position_Command a owl:Class ;
     brick:hasAssociatedTag tag:Command,
         tag:Position,
         tag:Valve .
+
+switch:Virus_Risk_Rating_Sensor a owl:Class ;
+    rdfs:label "Virus Risk Rating Sensor" ;
+    rdfs:subClassOf switch:Risk_Rating_Sensor ;
+    skos:definition "Risk of virus transmission with given measurements" ;
+    brick:hasAssociatedTag tag:Rating,
+        tag:Risk,
+        tag:Sensor,
+        tag:Virus .
 
 switch:Virus_Sensor a owl:Class ;
     rdfs:label "Virus Sensor" ;
@@ -5653,6 +5897,16 @@ switch:Water_Velocity_Sensor a owl:Class ;
         tag:Velocity,
         tag:Water .
 
+switch:Zone_Air_Radon_Concentration_Sensor a owl:Class ;
+    rdfs:label "Zone Air Radon Concentration Sensor" ;
+    rdfs:subClassOf brick:Radon_Concentration_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:Concentration,
+        tag:Radon,
+        tag:Sensor,
+        tag:Zone .
+
 switch:isMonitoredBy a owl:AsymmetricProperty,
         owl:IrreflexiveProperty,
         owl:ObjectProperty ;
@@ -5693,6 +5947,9 @@ tag:CN a brick:Tag ;
 
 tag:Close a brick:Tag ;
     rdfs:label "Close" .
+
+tag:Concentration a brick:Tag ;
+    rdfs:label "Concentration" .
 
 tag:Condensate a brick:Tag ;
     rdfs:label "Condensate" .
@@ -5739,8 +5996,14 @@ tag:Makeup a brick:Tag ;
 tag:Medium a brick:Tag ;
     rdfs:label "Medium" .
 
+tag:Mold a brick:Tag ;
+    rdfs:label "Mold" .
+
 tag:N a brick:Tag ;
     rdfs:label "N" .
+
+tag:NO a brick:Tag ;
+    rdfs:label "NO" .
 
 tag:Neutral a brick:Tag ;
     rdfs:label "Neutral" .
@@ -5754,14 +6017,17 @@ tag:Open a brick:Tag ;
 tag:Override a brick:Tag ;
     rdfs:label "Override" .
 
+tag:Ozone a brick:Tag ;
+    rdfs:label "Ozone" .
+
 tag:Preheat a brick:Tag ;
     rdfs:label "Preheat" .
 
 tag:Quality a brick:Tag ;
     rdfs:label "Quality" .
 
-tag:Received a brick:Tag ;
-    rdfs:label "Received" .
+tag:Radon a brick:Tag ;
+    rdfs:label "Radon" .
 
 tag:Reheat a brick:Tag ;
     rdfs:label "Reheat" .
@@ -5771,6 +6037,9 @@ tag:Reversing a brick:Tag ;
 
 tag:Ripple a brick:Tag ;
     rdfs:label "Ripple" .
+
+tag:SO2 a brick:Tag ;
+    rdfs:label "SO2" .
 
 tag:Saturation a brick:Tag ;
     rdfs:label "Saturation" .
@@ -5784,6 +6053,9 @@ tag:Setback a brick:Tag ;
 tag:Stop a brick:Tag ;
     rdfs:label "Stop" .
 
+tag:Strength a brick:Tag ;
+    rdfs:label "Strength" .
+
 tag:Supply a brick:Tag ;
     rdfs:label "Supply" .
 
@@ -5792,9 +6064,6 @@ tag:Triple a brick:Tag ;
 
 tag:Vane a brick:Tag ;
     rdfs:label "Vane" .
-
-tag:Virus a brick:Tag ;
-    rdfs:label "Virus" .
 
 tag:Warmup a brick:Tag ;
     rdfs:label "Warmup" .
@@ -5990,6 +6259,29 @@ switch:Position_Setpoint a owl:Class ;
     brick:hasAssociatedTag tag:Position,
         tag:Setpoint .
 
+switch:Risk_Rating_Sensor a owl:Class ;
+    rdfs:label "Risk Rating Sensor" ;
+    rdfs:subClassOf switch:Rating_Sensor ;
+    skos:definition "Risk level (rating)" ;
+    brick:hasAssociatedTag tag:Rating,
+        tag:Risk,
+        tag:Sensor .
+
+switch:Signal_Strength_Sensor a owl:Class ;
+    rdfs:label "Signal Strength Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sensor,
+        tag:Signal,
+        tag:Strength .
+
+switch:Sound_Sensor a owl:Class ;
+    rdfs:label "Sound Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sensor,
+        tag:Sound .
+
 switch:Standby_Air_Temperature_Setpoint a owl:Class ;
     rdfs:label "Standby Air Temperature Setpoint" ;
     rdfs:subClassOf brick:Air_Temperature_Setpoint ;
@@ -6071,9 +6363,6 @@ tag:Disable a brick:Tag ;
 tag:Lead a brick:Tag ;
     rdfs:label "Lead" .
 
-tag:NO2 a brick:Tag ;
-    rdfs:label "NO2" .
-
 tag:Operational a brick:Tag ;
     rdfs:label "Operational" .
 
@@ -6088,6 +6377,12 @@ tag:Relative a brick:Tag ;
 
 tag:Side a brick:Tag ;
     rdfs:label "Side" .
+
+tag:Signal a brick:Tag ;
+    rdfs:label "Signal" .
+
+tag:Sound a brick:Tag ;
+    rdfs:label "Sound" .
 
 tag:Staging a brick:Tag ;
     rdfs:label "Staging" .
@@ -6187,6 +6482,13 @@ switch:Leaving_Hot_Water_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature,
         tag:Water .
+
+switch:Level_Sensor a owl:Class ;
+    rdfs:label "Level Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Level,
+        tag:Sensor .
 
 switch:Phase_Angle_Sensor a owl:Class ;
     rdfs:label "Phase Angle Sensor" ;
@@ -6307,6 +6609,9 @@ tag:Morning a brick:Tag ;
 tag:Rate a brick:Tag ;
     rdfs:label "Rate" .
 
+tag:Received a brick:Tag ;
+    rdfs:label "Received" .
+
 tag:Reset a brick:Tag ;
     rdfs:label "Reset" .
 
@@ -6318,6 +6623,9 @@ tag:Thermal a brick:Tag ;
 
 tag:Unoccupied a brick:Tag ;
     rdfs:label "Unoccupied" .
+
+tag:Virus a brick:Tag ;
+    rdfs:label "Virus" .
 
 switch:Count_Setpoint a owl:Class ;
     rdfs:label "Count Setpoint" ;
@@ -6413,11 +6721,17 @@ tag:Line a brick:Tag ;
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
 
+tag:NO2 a brick:Tag ;
+    rdfs:label "NO2" .
+
 tag:Night a brick:Tag ;
     rdfs:label "Night" .
 
 tag:Reactive a brick:Tag ;
     rdfs:label "Reactive" .
+
+tag:Risk a brick:Tag ;
+    rdfs:label "Risk" .
 
 tag:Select a brick:Tag ;
     rdfs:label "Select" .
@@ -6458,6 +6772,9 @@ tag:Hours a brick:Tag ;
 
 tag:Isolation a brick:Tag ;
     rdfs:label "Isolation" .
+
+tag:Rating a brick:Tag ;
+    rdfs:label "Rating" .
 
 tag:Standby a brick:Tag ;
     rdfs:label "Standby" .
@@ -6554,6 +6871,9 @@ tag:Effective a brick:Tag ;
 
 tag:Velocity a brick:Tag ;
     rdfs:label "Velocity" .
+
+tag:Ambient a brick:Tag ;
+    rdfs:label "Ambient" .
 
 tag:Average a brick:Tag ;
     rdfs:label "Average" .

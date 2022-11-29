@@ -11,16 +11,24 @@
    @grid-ready="onGridReady"
  >
  </ag-grid-vue> -->
- <div id="controller-bar" class="flex flex-row space-x-2 m-2 w-full">
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded" @click="expandRows()">
-        Expand All
-    </button>
-    <button class="bg-slate-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded" @click="collapseRows()">
-        Collapse All
-    </button>
-    <div class="border rounded w-1/3">
-        <input class="w-full" type="search" id="filter-text-box" placeholder="Filter..." v-on:input="onFilterTextBoxChanged()">
+ <div id="controller-bar" class="flex flex-row justify-between w-full">
+    <div class="flex flex-row space-x-2 m-2 w-2/3">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded" @click="expandRows()">
+            Expand All
+        </button>
+        <button class="bg-slate-500 hover:bg-blue-700 text-white font-bold py-1 px-1 rounded" @click="collapseRows()">
+            Collapse All
+        </button>
+        <div class="border rounded w-2/3">
+            <input class="w-full" type="search" id="filter-text-box" placeholder="Filter..." v-on:input="onFilterTextBoxChanged()">
+        </div>
     </div>
+    <div class="flex flex-row m-2">
+        <div id="version">
+            v1.3.1
+        </div>
+    </div>
+    
 </div>
 <ag-grid-vue
     class="ag-theme-alpine h-full"
