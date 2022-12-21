@@ -8,7 +8,7 @@
 
 switch: a owl:Ontology ;
     rdfs:label "Brick-SwitchExtension" ;
-    dcterms:version "1.3.1" ;
+    dcterms:version "1.3.2" ;
     skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
 
 switch:AHU_On_Off_Status a owl:Class ;
@@ -1732,6 +1732,15 @@ switch:Energy_Delivered_Sensor a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Delivered,
         tag:Energy,
+        tag:Sensor .
+
+switch:Entering_Air_CO2_Sensor a owl:Class ;
+    rdfs:label "Entering Air CO2 Sensor" ;
+    rdfs:subClassOf brick:CO2_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:CO2,
+        tag:Entering,
         tag:Sensor .
 
 switch:Entering_Air_Dewpoint_Sensor a owl:Class ;
@@ -5109,6 +5118,33 @@ switch:Zone_Air_Occupied_Heating_Temperature_Setpoint a owl:Class ;
         tag:Temperature,
         tag:Zone .
 
+switch:Zone_Air_PM10_Sensor a owl:Class ;
+    rdfs:label "Zone Air PM10 Sensor" ;
+    rdfs:subClassOf brick:PM10_Sensor ;
+    skos:definition "PM10 means the particles have a diameter less than 10 microns, or 100 times smaller than a millimeter. Units: μg/m3" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:PM10,
+        tag:Sensor,
+        tag:Zone .
+
+switch:Zone_Air_PM1_Sensor a owl:Class ;
+    rdfs:label "Zone Air PM1 Sensor" ;
+    rdfs:subClassOf brick:PM1_Sensor ;
+    skos:definition "PM1 are extremely fine particulates with a diameter of fewer than 1 microns. Units: μg/m3" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:PM1,
+        tag:Sensor,
+        tag:Zone .
+
+switch:Zone_Air_PM2.5_Sensor a owl:Class ;
+    rdfs:label "Zone Air PM2.5 Sensor" ;
+    rdfs:subClassOf brick:PM2.5_Sensor ;
+    skos:definition "PM2.5 (also known as fine particles) have a diameter of less than 2.5 microns. Units: μg/m3" ;
+    brick:hasAssociatedTag tag:Air,
+        tag:PM2.5,
+        tag:Sensor,
+        tag:Zone .
+
 switch:Zone_Air_Pressure_Sensor a owl:Class ;
     rdfs:label "Zone Air Pressure Sensor" ;
     rdfs:subClassOf brick:Static_Pressure_Sensor ;
@@ -5390,15 +5426,6 @@ tag:NG a brick:Tag ;
 
 tag:Net a brick:Tag ;
     rdfs:label "Net" .
-
-tag:PM1 a brick:Tag ;
-    rdfs:label "PM1" .
-
-tag:PM10 a brick:Tag ;
-    rdfs:label "PM10" .
-
-tag:PM2.5 a brick:Tag ;
-    rdfs:label "PM2.5" .
 
 tag:Pan a brick:Tag ;
     rdfs:label "Pan" .
@@ -6019,6 +6046,15 @@ tag:Override a brick:Tag ;
 
 tag:Ozone a brick:Tag ;
     rdfs:label "Ozone" .
+
+tag:PM1 a brick:Tag ;
+    rdfs:label "PM1" .
+
+tag:PM10 a brick:Tag ;
+    rdfs:label "PM10" .
+
+tag:PM2.5 a brick:Tag ;
+    rdfs:label "PM2.5" .
 
 tag:Preheat a brick:Tag ;
     rdfs:label "Preheat" .
