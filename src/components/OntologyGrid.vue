@@ -25,7 +25,7 @@
     </div>
     <div class="flex flex-row m-2">
         <div id="version">
-            v1.3.2
+            v1.4.0
         </div>
     </div>
     
