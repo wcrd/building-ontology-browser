@@ -76,7 +76,7 @@ setup() {
             { field: "desc"},
             { field: "uri", hide: true },
             { field: "namespace" },
-            { field: "prefix" },
+            { field: "prefix", maxWidth: 250 },
             // { field: "term" }
         ],
     });

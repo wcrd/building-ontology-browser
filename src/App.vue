@@ -3,7 +3,7 @@ import OntologyGrid from './components/OntologyGrid.vue';
 </script>
 
 <template>
-<div class="h-screen">
+<div class="h-screen flex flex-col">
     <OntologyGrid class="h-full"/>
   </div>
 </template>
