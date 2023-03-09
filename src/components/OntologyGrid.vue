@@ -76,7 +76,7 @@ setup() {
             { field: "desc"},
             { field: "uri", hide: true },
             { field: "namespace" },
-            { field: "prefix", maxWidth: 250 },
+            { field: "prefix", hide: true },
             // { field: "term" }
         ],
     });
@@ -164,7 +164,8 @@ setup() {
                     innerRenderer: classValueGetter
                 },
                 filter: 'agTextColumnFilter',
-                resizable: true
+                resizable: true,
+                sort: 'asc'
         },
         onFilterTextBoxChanged,
         collapseRows,
