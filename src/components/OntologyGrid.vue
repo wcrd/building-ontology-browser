@@ -20,7 +20,7 @@
             Collapse All
         </button>
         <div class="border rounded w-2/3">
-            <input class="w-full" type="search" id="filter-text-box" placeholder="Filter..." v-on:input="onFilterTextBoxChanged()">
+            <input class="w-full outline-none" type="search" id="filter-text-box" placeholder="Filter..." v-on:input="onFilterTextBoxChanged()">
         </div>
     </div>
     <div class="flex flex-row m-2">
