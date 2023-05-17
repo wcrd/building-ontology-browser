@@ -8,7 +8,7 @@
 
 switch: a owl:Ontology ;
     rdfs:label "Brick-SwitchExtension" ;
-    dcterms:version "1.3.3" ;
+    dcterms:version "1.3.4" ;
     skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
 
 switch:AHU_On_Off_Status a owl:Class ;
@@ -387,6 +387,15 @@ switch:Battery_Level_Sensor a owl:Class ;
     brick:hasAssociatedTag tag:Battery,
         tag:Level,
         tag:Sensor .
+
+switch:Branch_Circuit_Electrical_Meter a owl:Class ;
+    rdfs:label "Branch-circuit Electrical Meter" ;
+    rdfs:subClassOf switch:Multi_Circuit_Electrical_Meter ;
+    skos:definition "A multi-circuit meter designed to monitor a number of circuits in close proximity branching from a single source; i.e. a distribution board, panel, or switchgear installation. Typically more compact design with built in aggregation functions across the branch circuits." ;
+    brick:hasAssociatedTag tag:Branch,
+        tag:Circuit,
+        tag:Electrical,
+        tag:Meter .
 
 switch:Bypass_Damper a owl:Class ;
     rdfs:label "Bypass Damper" ;
@@ -5492,14 +5501,14 @@ tag:Basin a brick:Tag ;
 tag:Bearing a brick:Tag ;
     rdfs:label "Bearing" .
 
+tag:Branch a brick:Tag ;
+    rdfs:label "Branch" .
+
 tag:Calorifier a brick:Tag ;
     rdfs:label "Calorifier" .
 
 tag:Charger a brick:Tag ;
     rdfs:label "Charger" .
-
-tag:Circuit a brick:Tag ;
-    rdfs:label "Circuit" .
 
 tag:Coefficienct a brick:Tag ;
     rdfs:label "Coefficienct" .
@@ -5543,9 +5552,6 @@ tag:EV a brick:Tag ;
 tag:Efficiency a brick:Tag ;
     rdfs:label "Efficiency" .
 
-tag:Electrical a brick:Tag ;
-    rdfs:label "Electrical" .
-
 tag:Electrostatic a brick:Tag ;
     rdfs:label "Electrostatic" .
 
@@ -5584,6 +5590,9 @@ tag:Maintenance a brick:Tag ;
 
 tag:Moving a brick:Tag ;
     rdfs:label "Moving" .
+
+tag:Multi a brick:Tag ;
+    rdfs:label "Multi" .
 
 tag:NG a brick:Tag ;
     rdfs:label "NG" .
@@ -5900,6 +5909,15 @@ switch:Mold_Risk_Rating_Sensor a owl:Class ;
         tag:Rating,
         tag:Risk,
         tag:Sensor .
+
+switch:Multi_Circuit_Electrical_Meter a owl:Class ;
+    rdfs:label "Multi-circuit Electrical Meter" ;
+    rdfs:subClassOf brick:Electrical_Meter ;
+    skos:definition "Multi-circuit meters allow the monitoring of many metering points from a single controller without having to mount/purchase/wire/commission individual energy meters. Typically allow between 4 - 18 3-phase ‘meters’ to be added per controller." ;
+    brick:hasAssociatedTag tag:Circuit,
+        tag:Electrical,
+        tag:Meter,
+        tag:Multi .
 
 switch:NO2_Level_Setpoint a owl:Class ;
     rdfs:label "NO2 Level Setpoint" ;
@@ -6551,11 +6569,17 @@ tag:Adjust a brick:Tag ;
 tag:Availability a brick:Tag ;
     rdfs:label "Availability" .
 
+tag:Circuit a brick:Tag ;
+    rdfs:label "Circuit" .
+
 tag:Deadband a brick:Tag ;
     rdfs:label "Deadband" .
 
 tag:Disable a brick:Tag ;
     rdfs:label "Disable" .
+
+tag:Electrical a brick:Tag ;
+    rdfs:label "Electrical" .
 
 tag:Lead a brick:Tag ;
     rdfs:label "Lead" .
