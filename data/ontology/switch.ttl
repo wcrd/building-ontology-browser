@@ -614,6 +614,13 @@ switch:Cold_Plate_Temperature_Sensor a owl:Class ;
         tag:Sensor,
         tag:Temperature .
 
+switch:Collection_Basin a owl:Class ;
+    rdfs:label "Collection Basin" ;
+    rdfs:subClassOf switch:Basin ;
+    skos:definition "Vessel below and integral with the tower where water is transiently collected and directed to the sump or pump suction line." ;
+    brick:hasAssociatedTag tag:Basin,
+        tag:Collection .
+
 switch:Collection_Basin_Water_Level_Setpoint a owl:Class ;
     rdfs:label "Collection Basin Water Level Setpoint" ;
     rdfs:subClassOf switch:Water_Level_Setpoint ;
@@ -1525,6 +1532,13 @@ switch:Discharge_Static_Pressure_Sensor a owl:Class ;
         tag:Pressure,
         tag:Sensor,
         tag:Static .
+
+switch:Distribution_Basin a owl:Class ;
+    rdfs:label "Distribution_Basin" ;
+    rdfs:subClassOf switch:Basin ;
+    skos:definition "Shallow pan-type elevated basin used to distribute hot water over the tower fill by means of orifices in the basin floor. Application is normally limited to crossflow towers." ;
+    brick:hasAssociatedTag tag:Basin,
+        tag:Distribution .
 
 switch:Domestic_Cold_Water_System a owl:Class ;
     rdfs:label "Domestic Cold Water System" ;
@@ -4735,6 +4749,12 @@ switch:Static_Transfer_Switch a owl:Class ;
         tag:Switch,
         tag:Transfer .
 
+switch:Sump a owl:Class ;
+    rdfs:label "Sump" ;
+    rdfs:subClassOf switch:Basin ;
+    skos:definition "A depressed chamber to collect fluid flows to facilitate pump suction. Sumps may also be designed as collection points for silt and sludge to aid in cleaning." ;
+    brick:hasAssociatedTag tag:Sump .
+
 switch:Supply_Loop a owl:Class ;
     rdfs:label "Supply Loop" ;
     rdfs:subClassOf brick:Water_Distribution ;
@@ -5055,6 +5075,14 @@ switch:VAV_Run_Count_Sensor a owl:Class ;
         tag:Run,
         tag:Sensor,
         tag:VAV .
+
+switch:VFD_with_Bypass a owl:Class ;
+    rdfs:label "VFD with Bypass" ;
+    rdfs:subClassOf brick:VFD ;
+    skos:definition "VFD with associated Bypass add-on. Generally part of one combined enclosure. Bypass allows the VFD to be bypassed and the motor to run at full load directly on line power; generally used in case of fault or maintenance." ;
+    brick:hasAssociatedTag tag:Bypass,
+        tag:VFD,
+        tag:with .
 
 switch:VRF a owl:Class ;
     rdfs:label "Variable Refrigerant Flow (VRF)" ;
@@ -5600,9 +5628,6 @@ tag:Approach a brick:Tag ;
 tag:Balancing a brick:Tag ;
     rdfs:label "Balancing" .
 
-tag:Basin a brick:Tag ;
-    rdfs:label "Basin" .
-
 tag:Bearing a brick:Tag ;
     rdfs:label "Bearing" .
 
@@ -5644,9 +5669,6 @@ tag:Dehumidifier a brick:Tag ;
 
 tag:Design a brick:Tag ;
     rdfs:label "Design" .
-
-tag:Distribution a brick:Tag ;
-    rdfs:label "Distribution" .
 
 tag:Down a brick:Tag ;
     rdfs:label "Down" .
@@ -5777,6 +5799,9 @@ tag:Stair a brick:Tag ;
 tag:Stat a brick:Tag ;
     rdfs:label "Stat" .
 
+tag:Sump a brick:Tag ;
+    rdfs:label "Sump" .
+
 tag:Sweeper a brick:Tag ;
     rdfs:label "Sweeper" .
 
@@ -5857,6 +5882,9 @@ tag:of a brick:Tag ;
 
 tag:per a brick:Tag ;
     rdfs:label "per" .
+
+tag:with a brick:Tag ;
+    rdfs:label "with" .
 
 switch:ACU a owl:Class ;
     rdfs:label "Air Conditioning Unit" ;
@@ -6286,6 +6314,9 @@ tag:Dehumdification a brick:Tag ;
 
 tag:Disconnect a brick:Tag ;
     rdfs:label "Disconnect" .
+
+tag:Distribution a brick:Tag ;
+    rdfs:label "Distribution" .
 
 tag:EEV a brick:Tag ;
     rdfs:label "EEV" .
@@ -6768,6 +6799,12 @@ switch:Apparent_Power_Sensor a owl:Class ;
         tag:Power,
         tag:Sensor .
 
+switch:Basin a owl:Class ;
+    rdfs:label "Basin" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "A wide, round open container, especially one used for holding liquid." ;
+    brick:hasAssociatedTag tag:Basin .
+
 switch:CO_Setpoint a owl:Class ;
     rdfs:label "CO Setpoint" ;
     rdfs:subClassOf brick:Setpoint ;
@@ -6954,6 +6991,9 @@ switch:Zone_Air_Pressure_Sensor a owl:Class ;
         tag:Pressure,
         tag:Sensor,
         tag:Zone .
+
+tag:Basin a brick:Tag ;
+    rdfs:label "Basin" .
 
 tag:Beam a brick:Tag ;
     rdfs:label "Beam" .
@@ -7270,9 +7310,6 @@ switch:Operating_Mode_Enable_Status a owl:Class ;
         tag:Operating,
         tag:Status .
 
-tag:Bypass a brick:Tag ;
-    rdfs:label "Bypass" .
-
 tag:Effective a brick:Tag ;
     rdfs:label "Effective" .
 
@@ -7281,6 +7318,9 @@ tag:Velocity a brick:Tag ;
 
 tag:Ambient a brick:Tag ;
     rdfs:label "Ambient" .
+
+tag:Bypass a brick:Tag ;
+    rdfs:label "Bypass" .
 
 tag:A a brick:Tag ;
     rdfs:label "A" .
