@@ -8,7 +8,7 @@
 
 switch: a owl:Ontology ;
     rdfs:label "Brick-SwitchExtension" ;
-    dcterms:version "1.3.4" ;
+    dcterms:version "1.3.6" ;
     skos:definition "An extension to the Brick ontology that captures additional Equipment and Point classes, as well as providing some Switch Automation specific objects" .
 
 switch:AHU_On_Off_Status a owl:Class ;
@@ -229,7 +229,8 @@ For Condenser: Lvg. refrig temp (liquid) - Ent. CDW temp""" ;
 
 switch:Automatic_Transfer_Switch a owl:Class ;
     rdfs:label "Automation Transfer Switch (ATS)" ;
-    rdfs:subClassOf switch:Transfer_Switch ;
+    rdfs:subClassOf switch:Automatic_Switch,
+        switch:Transfer_Switch ;
     skos:definition "An automatic transfer switch (ATS) is a device that automatically transfers a power supply from its primary source to a backup source when it senses a failure or outage in the primary source" ;
     brick:hasAssociatedTag tag:Automatic,
         tag:Switch,
@@ -571,6 +572,14 @@ switch:Close_Command a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Close,
         tag:Command .
+
+switch:Close_Open_Status a owl:Class ;
+    rdfs:label "Close Open Status" ;
+    rdfs:subClassOf brick:Status ;
+    skos:definition "Inverse of Open_Close_Status; i.e. 0 = Open, 1 = Closed" ;
+    brick:hasAssociatedTag tag:Close,
+        tag:Open,
+        tag:Status .
 
 switch:Coefficienct_of_Performance_Sensor a owl:Class ;
     rdfs:label "Coefficienct of Performance Sensor" ;
@@ -1583,6 +1592,13 @@ switch:Drain_Pan_Alarm a owl:Class ;
     brick:hasAssociatedTag tag:Alarm,
         tag:Drain,
         tag:Pan .
+
+switch:Dry_Cooler a owl:Class ;
+    rdfs:label "Dry Cooler" ;
+    rdfs:subClassOf brick:Heat_Exchanger ;
+    skos:definition "Air cooled heat exchanger using glycol as working fluid." ;
+    brick:hasAssociatedTag tag:Cooler,
+        tag:Dry .
 
 switch:EEV_Position_Command a owl:Class ;
     rdfs:label "EEV Position Command" ;
@@ -2614,6 +2630,14 @@ switch:Inverter_Temperature_Sensor a owl:Class ;
         tag:Sensor,
         tag:Temperature .
 
+switch:Isolation_Switch a owl:Class ;
+    rdfs:label "Isolation_Switch" ;
+    rdfs:subClassOf switch:Switch ;
+    owl:equivalentClass switch:Disconnect_Switch ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Isolation,
+        tag:Switch .
+
 switch:Kitchen_Exhaust_Fan a owl:Class ;
     rdfs:label "Kitchen Exhaust Fan" ;
     rdfs:subClassOf brick:Exhaust_Fan ;
@@ -3080,13 +3104,37 @@ switch:Light_Level_Sensor a owl:Class ;
         tag:Light,
         tag:Sensor .
 
-switch:Line_Current_Load_Sensor a owl:Class ;
-    rdfs:label "Line Current Load Sensor" ;
-    rdfs:subClassOf brick:Sensor ;
+switch:Line_Current_Phase_A_Load_Sensor a owl:Class ;
+    rdfs:label "Line Current Phase A Load Sensor" ;
+    rdfs:subClassOf switch:Line_Current_Load_Sensor ;
     skos:definition "" ;
-    brick:hasAssociatedTag tag:Current,
+    brick:hasAssociatedTag tag:A,
+        tag:Current,
         tag:Line,
         tag:Load,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Line_Current_Phase_B_Load_Sensor a owl:Class ;
+    rdfs:label "Line Current Phase B Load Sensor" ;
+    rdfs:subClassOf switch:Line_Current_Load_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:B,
+        tag:Current,
+        tag:Line,
+        tag:Load,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Line_Current_Phase_C_Load_Sensor a owl:Class ;
+    rdfs:label "Line Current Phase C Load Sensor" ;
+    rdfs:subClassOf switch:Line_Current_Load_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:C,
+        tag:Current,
+        tag:Line,
+        tag:Load,
+        tag:Phase,
         tag:Sensor .
 
 switch:Line_Power_Load_Sensor a owl:Class ;
@@ -3190,6 +3238,22 @@ switch:MAU a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:MAU .
 
+switch:Main_Circuit_Breaker a owl:Class ;
+    rdfs:label "Main Circuit Breaker" ;
+    rdfs:subClassOf switch:Circuit_Breaker ;
+    skos:definition "All breaker panels generally have a main circuit breaker before the bus / MCBs. In some older panels there may be a Main Disconnect Swith instead. It is also possible to have a main disconnect switch, and a main circuit breaker in a panel." ;
+    brick:hasAssociatedTag tag:Breaker,
+        tag:Circuit,
+        tag:Main .
+
+switch:Main_Disconnect_Switch a owl:Class ;
+    rdfs:label "Main Disconnect Switch" ;
+    rdfs:subClassOf switch:Disconnect_Switch ;
+    skos:definition "Main manual switch on a breaker at the incoming feed." ;
+    brick:hasAssociatedTag tag:Disconnect,
+        tag:Main,
+        tag:Switch .
+
 switch:Maintenance_Mode_Enable_Status a owl:Class ;
     rdfs:label "Maintenance Mode Enable Status" ;
     rdfs:subClassOf brick:Enable_Status ;
@@ -3216,6 +3280,15 @@ switch:Makeup_Water_Velocity_Sensor a owl:Class ;
         tag:Sensor,
         tag:Velocity,
         tag:Water .
+
+switch:Max_Damper_Position_Sensor a owl:Class ;
+    rdfs:label "Max Damper Position Sensor" ;
+    rdfs:subClassOf brick:Damper_Position_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Damper,
+        tag:Max,
+        tag:Position,
+        tag:Sensor .
 
 switch:Max_Demand_Active_Power_Sensor a owl:Class ;
     rdfs:label "Max Demand Active Power Sensor" ;
@@ -3922,6 +3995,33 @@ switch:Phase_Angle_Phase_C_Sensor a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Angle,
         tag:C,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Phase_Current_Phase_A_Sensor a owl:Class ;
+    rdfs:label "Phase Current Phase A Sensor" ;
+    rdfs:subClassOf switch:Phase_Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:A,
+        tag:Current,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Phase_Current_Phase_B_Sensor a owl:Class ;
+    rdfs:label "Phase Current Phase B Sensor" ;
+    rdfs:subClassOf switch:Phase_Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:B,
+        tag:Current,
+        tag:Phase,
+        tag:Sensor .
+
+switch:Phase_Current_Phase_C_Sensor a owl:Class ;
+    rdfs:label "Phase Current Phase C Sensor" ;
+    rdfs:subClassOf switch:Phase_Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:C,
+        tag:Current,
         tag:Phase,
         tag:Sensor .
 
@@ -5079,6 +5179,14 @@ switch:Water_Flow_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Water .
 
+switch:Winding_Temperature_Sensor a owl:Class ;
+    rdfs:label "Winding Temperature Sensor" ;
+    rdfs:subClassOf brick:Temperature_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Sensor,
+        tag:Temperature,
+        tag:Winding .
+
 switch:Zone_Air_Absolute_Humidity_Sensor a owl:Class ;
     rdfs:label "Zone Air Absolute Humidity Sensor" ;
     rdfs:subClassOf brick:Humidity_Sensor ;
@@ -5489,9 +5597,6 @@ tag:Angular a brick:Tag ;
 tag:Approach a brick:Tag ;
     rdfs:label "Approach" .
 
-tag:Automatic a brick:Tag ;
-    rdfs:label "Automatic" .
-
 tag:Balancing a brick:Tag ;
     rdfs:label "Balancing" .
 
@@ -5522,6 +5627,9 @@ tag:Connection a brick:Tag ;
 tag:Controller a brick:Tag ;
     rdfs:label "Controller" .
 
+tag:Cooler a brick:Tag ;
+    rdfs:label "Cooler" .
+
 tag:Coupon a brick:Tag ;
     rdfs:label "Coupon" .
 
@@ -5545,6 +5653,9 @@ tag:Down a brick:Tag ;
 
 tag:Drain a brick:Tag ;
     rdfs:label "Drain" .
+
+tag:Dry a brick:Tag ;
+    rdfs:label "Dry" .
 
 tag:EV a brick:Tag ;
     rdfs:label "EV" .
@@ -5735,6 +5846,9 @@ tag:Walkway a brick:Tag ;
 tag:Wetbulb a brick:Tag ;
     rdfs:label "Wetbulb" .
 
+tag:Winding a brick:Tag ;
+    rdfs:label "Winding" .
+
 tag:kW a brick:Tag ;
     rdfs:label "kW" .
 
@@ -5785,6 +5899,13 @@ switch:Air_Standby_Heating_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Standby,
         tag:Temperature .
+
+switch:Circuit_Breaker a owl:Class ;
+    rdfs:label "Circuit Breaker" ;
+    rdfs:subClassOf switch:Automatic_Switch ;
+    skos:definition "A circuit breaker is a safety device to prevent damage to devices in a circuit, such as electric motors, and wiring when the current flowing through the electrical circuit supersedes its design limits. It does this by removing the current from a circuit when an unsafe condition arises. Unlike a switch, a circuit breaker automatically does this and shuts off the power immediately" ;
+    brick:hasAssociatedTag tag:Breaker,
+        tag:Circuit .
 
 switch:Cooling_Load_Sensor a owl:Class ;
     rdfs:label "Cooling Load Sensor" ;
@@ -5946,14 +6067,6 @@ switch:Ozone_Sensor a owl:Class ;
     rdfs:subClassOf brick:Air_Quality_Sensor ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Ozone,
-        tag:Sensor .
-
-switch:Phase_Current_Sensor a owl:Class ;
-    rdfs:label "Phase Current Sensor" ;
-    rdfs:subClassOf brick:Current_Sensor ;
-    skos:definition "" ;
-    brick:hasAssociatedTag tag:Current,
-        tag:Phase,
         tag:Sensor .
 
 switch:Power_Load_Sensor a owl:Class ;
@@ -6135,20 +6248,23 @@ tag:AB a brick:Tag ;
 tag:AN a brick:Tag ;
     rdfs:label "AN" .
 
+tag:Automatic a brick:Tag ;
+    rdfs:label "Automatic" .
+
 tag:BC a brick:Tag ;
     rdfs:label "BC" .
 
 tag:BN a brick:Tag ;
     rdfs:label "BN" .
 
+tag:Breaker a brick:Tag ;
+    rdfs:label "Breaker" .
+
 tag:CA a brick:Tag ;
     rdfs:label "CA" .
 
 tag:CN a brick:Tag ;
     rdfs:label "CN" .
-
-tag:Close a brick:Tag ;
-    rdfs:label "Close" .
 
 tag:Concentration a brick:Tag ;
     rdfs:label "Concentration" .
@@ -6167,6 +6283,9 @@ tag:DHW a brick:Tag ;
 
 tag:Dehumdification a brick:Tag ;
     rdfs:label "Dehumdification" .
+
+tag:Disconnect a brick:Tag ;
+    rdfs:label "Disconnect" .
 
 tag:EEV a brick:Tag ;
     rdfs:label "EEV" .
@@ -6195,6 +6314,9 @@ tag:Inlet a brick:Tag ;
 tag:Lag a brick:Tag ;
     rdfs:label "Lag" .
 
+tag:Main a brick:Tag ;
+    rdfs:label "Main" .
+
 tag:Makeup a brick:Tag ;
     rdfs:label "Makeup" .
 
@@ -6209,9 +6331,6 @@ tag:N a brick:Tag ;
 
 tag:Neutral a brick:Tag ;
     rdfs:label "Neutral" .
-
-tag:Open a brick:Tag ;
-    rdfs:label "Open" .
 
 tag:Override a brick:Tag ;
     rdfs:label "Override" .
@@ -6297,6 +6416,13 @@ switch:Air_Static_Pressure_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Static .
 
+switch:Automatic_Switch a owl:Class ;
+    rdfs:label "Automatic Switch" ;
+    rdfs:subClassOf switch:Switch ;
+    skos:definition "An automatic switch operates automatically in the event of some current threshold or other designed event. Criteria for automatic operation is generally a physical property of the switch." ;
+    brick:hasAssociatedTag tag:Automatic,
+        tag:Switch .
+
 switch:Chilled_Beam a owl:Class ;
     rdfs:label "Chilled Beam" ;
     rdfs:subClassOf brick:Terminal_Unit ;
@@ -6341,6 +6467,13 @@ switch:Conditioned_Water_Temperature_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Temperature,
         tag:Water .
+
+switch:Disconnect_Switch a owl:Class ;
+    rdfs:label "Disconnect Switch" ;
+    rdfs:subClassOf switch:Switch ;
+    skos:definition "A disconnect switch performs the task of manually cutting or reconnecting power from an electrical supply by creating or closing an air insulation gap between two conduction points. Also known as an 'Isolation Switch'" ;
+    brick:hasAssociatedTag tag:Disconnect,
+        tag:Switch .
 
 switch:Efficiency_Sensor a owl:Class ;
     rdfs:label "Efficiency Sensor" ;
@@ -6517,7 +6650,7 @@ switch:Thermal_Energy_Usage_Sensor a owl:Class ;
 
 switch:Transfer_Switch a owl:Class ;
     rdfs:label "Transfer Switch" ;
-    rdfs:subClassOf brick:Electrical_Equipment ;
+    rdfs:subClassOf switch:Switch ;
     skos:definition "An electrical switch that switches a load between two sources" ;
     brick:hasAssociatedTag tag:Switch,
         tag:Transfer .
@@ -6569,8 +6702,8 @@ tag:Adjust a brick:Tag ;
 tag:Availability a brick:Tag ;
     rdfs:label "Availability" .
 
-tag:Circuit a brick:Tag ;
-    rdfs:label "Circuit" .
+tag:Close a brick:Tag ;
+    rdfs:label "Close" .
 
 tag:Deadband a brick:Tag ;
     rdfs:label "Deadband" .
@@ -6589,6 +6722,9 @@ tag:NO a brick:Tag ;
 
 tag:Offset a brick:Tag ;
     rdfs:label "Offset" .
+
+tag:Open a brick:Tag ;
+    rdfs:label "Open" .
 
 tag:Operational a brick:Tag ;
     rdfs:label "Operational" .
@@ -6727,6 +6863,15 @@ switch:Level_Setpoint a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:Level,
         tag:Setpoint .
+
+switch:Line_Current_Load_Sensor a owl:Class ;
+    rdfs:label "Line Current Load Sensor" ;
+    rdfs:subClassOf brick:Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Current,
+        tag:Line,
+        tag:Load,
+        tag:Sensor .
 
 switch:Phase_Angle_Sensor a owl:Class ;
     rdfs:label "Phase Angle Sensor" ;
@@ -6898,6 +7043,14 @@ switch:Operating_Mode_Command a owl:Class ;
         tag:Mode,
         tag:Operating .
 
+switch:Phase_Current_Sensor a owl:Class ;
+    rdfs:label "Phase Current Sensor" ;
+    rdfs:subClassOf brick:Current_Sensor ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Current,
+        tag:Phase,
+        tag:Sensor .
+
 switch:Phase_Voltage_Sensor a owl:Class ;
     rdfs:label "Phase Voltage Sensor" ;
     rdfs:subClassOf brick:Voltage_Sensor ;
@@ -6921,6 +7074,12 @@ switch:Run_Count_Sensor a owl:Class ;
     brick:hasAssociatedTag tag:Count,
         tag:Run,
         tag:Sensor .
+
+switch:Switch a owl:Class ;
+    rdfs:label "Switch" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "A switch is an electrical component that can disconnect or connect the conducting path in an electrical circuit, interrupting the electric current or diverting it from one conductor to another." ;
+    brick:hasAssociatedTag tag:Switch .
 
 switch:Water_Flow_Status a owl:Class ;
     rdfs:label "Water Flow Status" ;
@@ -6951,6 +7110,9 @@ switch:Water_Static_Pressure_Setpoint a owl:Class ;
 tag:Apparent a brick:Tag ;
     rdfs:label "Apparent" .
 
+tag:Circuit a brick:Tag ;
+    rdfs:label "Circuit" .
+
 tag:Dehumidification a brick:Tag ;
     rdfs:label "Dehumidification" .
 
@@ -6962,12 +7124,6 @@ tag:Evaporator a brick:Tag ;
 
 tag:Fault a brick:Tag ;
     rdfs:label "Fault" .
-
-tag:Line a brick:Tag ;
-    rdfs:label "Line" .
-
-tag:Max a brick:Tag ;
-    rdfs:label "Max" .
 
 tag:NO2 a brick:Tag ;
     rdfs:label "NO2" .
@@ -7018,8 +7174,8 @@ tag:Deck a brick:Tag ;
 tag:Hours a brick:Tag ;
     rdfs:label "Hours" .
 
-tag:Isolation a brick:Tag ;
-    rdfs:label "Isolation" .
+tag:Max a brick:Tag ;
+    rdfs:label "Max" .
 
 tag:Min a brick:Tag ;
     rdfs:label "Min" .
@@ -7058,6 +7214,9 @@ switch:Total_Harmonic_Distortion_Voltage_Sensor a owl:Class ;
 tag:Exhaust a brick:Tag ;
     rdfs:label "Exhaust" .
 
+tag:Isolation a brick:Tag ;
+    rdfs:label "Isolation" .
+
 tag:Occupied a brick:Tag ;
     rdfs:label "Occupied" .
 
@@ -7070,6 +7229,9 @@ switch:Request_Status a owl:Class ;
 
 tag:Factor a brick:Tag ;
     rdfs:label "Factor" .
+
+tag:Line a brick:Tag ;
+    rdfs:label "Line" .
 
 tag:Lockout a brick:Tag ;
     rdfs:label "Lockout" .
@@ -7108,17 +7270,8 @@ switch:Operating_Mode_Enable_Status a owl:Class ;
         tag:Operating,
         tag:Status .
 
-tag:A a brick:Tag ;
-    rdfs:label "A" .
-
-tag:B a brick:Tag ;
-    rdfs:label "B" .
-
 tag:Bypass a brick:Tag ;
     rdfs:label "Bypass" .
-
-tag:C a brick:Tag ;
-    rdfs:label "C" .
 
 tag:Effective a brick:Tag ;
     rdfs:label "Effective" .
@@ -7128,6 +7281,15 @@ tag:Velocity a brick:Tag ;
 
 tag:Ambient a brick:Tag ;
     rdfs:label "Ambient" .
+
+tag:A a brick:Tag ;
+    rdfs:label "A" .
+
+tag:B a brick:Tag ;
+    rdfs:label "B" .
+
+tag:C a brick:Tag ;
+    rdfs:label "C" .
 
 tag:Return a brick:Tag ;
     rdfs:label "Return" .
@@ -7147,11 +7309,11 @@ tag:Demand a brick:Tag ;
 tag:Harmonic a brick:Tag ;
     rdfs:label "Harmonic" .
 
-tag:Load a brick:Tag ;
-    rdfs:label "Load" .
-
 tag:Request a brick:Tag ;
     rdfs:label "Request" .
+
+tag:Load a brick:Tag ;
+    rdfs:label "Load" .
 
 tag:Static a brick:Tag ;
     rdfs:label "Static" .
@@ -7165,14 +7327,14 @@ tag:Total a brick:Tag ;
 tag:Conditioned a brick:Tag ;
     rdfs:label "Conditioned" .
 
-tag:Current a brick:Tag ;
-    rdfs:label "Current" .
-
 tag:Count a brick:Tag ;
     rdfs:label "Count" .
 
 tag:Discharge a brick:Tag ;
     rdfs:label "Discharge" .
+
+tag:Current a brick:Tag ;
+    rdfs:label "Current" .
 
 tag:Cooling a brick:Tag ;
     rdfs:label "Cooling" .
@@ -7204,12 +7366,12 @@ tag:Enable a brick:Tag ;
 tag:Entering a brick:Tag ;
     rdfs:label "Entering" .
 
-tag:Phase a brick:Tag ;
-    rdfs:label "Phase" .
-
 tag:Leaving a brick:Tag ;
     rdfs:label "Leaving" .
 
 tag:Mode a brick:Tag ;
     rdfs:label "Mode" .
+
+tag:Phase a brick:Tag ;
+    rdfs:label "Phase" .
 

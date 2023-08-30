@@ -25,7 +25,13 @@
     </div>
     <div class="flex flex-row m-2">
         <div id="version">
-            v1.4.2
+            v1.4.3
+            <span class="text-xs">
+                (
+                    <span class="mr-1"><span class="font-semibold italic">brick:</span> nightly@2023-08-30,</span>
+                    <span><span class="font-semibold italic">switch:</span> 1.3.6 </span>
+                )
+            </span>
         </div>
     </div>
     
