@@ -1042,6 +1042,13 @@ switch:Coupon_Rack a owl:Class ;
     brick:hasAssociatedTag tag:Coupon,
         tag:Rack .
 
+switch:Crossing_Counter a owl:Class ;
+    rdfs:label "Crossing Counter" ;
+    rdfs:subClassOf switch:People_Counter ;
+    skos:definition "Counts crossings over some threshold, generally through a door or entrance to a space. Many types of this sensor exist such as Computer Vision based, break-beam, etc." ;
+    brick:hasAssociatedTag tag:Counter,
+        tag:Crossing .
+
 switch:Current_Load_Sensor a owl:Class ;
     rdfs:label "Current Load Sensor" ;
     rdfs:subClassOf switch:Load_Sensor ;
@@ -1214,6 +1221,12 @@ switch:Design_Cooling_Capacity_Sensor a owl:Class ;
         tag:Cooling,
         tag:Design,
         tag:Sensor .
+
+switch:Desk a owl:Class ;
+    rdfs:label "Desk" ;
+    rdfs:subClassOf brick:Furniture ;
+    skos:definition "a piece of furniture with a flat or sloped surface and typically with drawers, at which one can read, write, or do other work." ;
+    brick:hasAssociatedTag tag:Desk .
 
 switch:Differential_Pressure_High_Limit_Setpoint a owl:Class ;
     rdfs:label "Differential Pressure High Limit Setpoint" ;
@@ -4213,6 +4226,19 @@ switch:Pump_Run_Count_Setpoint a owl:Class ;
         tag:Run,
         tag:Setpoint .
 
+switch:Rack_Power_Distribution_Unit a owl:Class ;
+    rdfs:label "Rack Power Distribution Unit" ;
+    rdfs:subClassOf switch:Power_Distribution_Unit ;
+    skos:definition """(rPDU) A basic "rack PDU" is a PDU that is designed to be mounted in an industry-standard equipment rack. These server racks are typically either 19 inches or 23 inches in width. Height can vary from PDU to PDU, but most are just one "rack unit" high. This translates to about 1.75 inches.
+
+A rack-mountable PDU is different from other kinds of PDUs that are designed to be wall-mounted or attached to the side of an equipment rack. These other PDUs conserve valuable physical rack space in cramped equipment racks, but they do increase the distance between the power outputs of the PDU and the power inputs of the devices that will receive electricity.
+
+A rack-mounted power distribution unit usually can manage and distribute large amounts of electricity. They typically allow you to connect them to your current monitoring system and can be accessed remotely.""" ;
+    brick:hasAssociatedTag tag:Distribution,
+        tag:Power,
+        tag:Rack,
+        tag:Unit .
+
 switch:Rain_Water_System a owl:Class ;
     rdfs:label "Rain Water System" ;
     rdfs:subClassOf brick:System ;
@@ -4529,6 +4555,14 @@ switch:Reversing_Valve_Status a owl:Class ;
     brick:hasAssociatedTag tag:Reversing,
         tag:Status,
         tag:Valve .
+
+switch:Room_Scheduling_Panel a owl:Class ;
+    rdfs:label "Room Scheduling Panel" ;
+    rdfs:subClassOf switch:Room_Panel ;
+    skos:definition "Controllable interface (generally touchscreen) that allows a user to schedule/book time in the room (or other rooms in the system). Generally there is one panel per room." ;
+    brick:hasAssociatedTag tag:Panel,
+        tag:Room,
+        tag:Scheduling .
 
 switch:Rotation_Direction_Status a owl:Class ;
     rdfs:label "Rotation Direction Status" ;
@@ -5207,6 +5241,15 @@ switch:Water_Flow_Setpoint a owl:Class ;
         tag:Setpoint,
         tag:Water .
 
+switch:Water_Leak_Detector a owl:Class ;
+    rdfs:label "Water Leak Detector" ;
+    rdfs:subClassOf switch:Leak_Detector ;
+    skos:definition """Generally a stand alone zone sensor equipment that detects water leaks (puddles, etc) in kitchens, plant rooms, etc. It interprets a "water leak" if the water sensor resistance drops below the lower limit 
+value""" ;
+    brick:hasAssociatedTag tag:Detector,
+        tag:Leak,
+        tag:Water .
+
 switch:Winding_Temperature_Sensor a owl:Class ;
     rdfs:label "Winding Temperature Sensor" ;
     rdfs:subClassOf brick:Temperature_Sensor ;
@@ -5658,6 +5701,9 @@ tag:Cooler a brick:Tag ;
 tag:Coupon a brick:Tag ;
     rdfs:label "Coupon" .
 
+tag:Crossing a brick:Tag ;
+    rdfs:label "Crossing" .
+
 tag:Curtain a brick:Tag ;
     rdfs:label "Curtain" .
 
@@ -5669,6 +5715,9 @@ tag:Dehumidifier a brick:Tag ;
 
 tag:Design a brick:Tag ;
     rdfs:label "Design" .
+
+tag:Desk a brick:Tag ;
+    rdfs:label "Desk" .
 
 tag:Down a brick:Tag ;
     rdfs:label "Down" .
@@ -5739,6 +5788,9 @@ tag:Pan a brick:Tag ;
 tag:Passive a brick:Tag ;
     rdfs:label "Passive" .
 
+tag:People a brick:Tag ;
+    rdfs:label "People" .
+
 tag:Performance a brick:Tag ;
     rdfs:label "Performance" .
 
@@ -5757,9 +5809,6 @@ tag:Pressurization a brick:Tag ;
 tag:Primary a brick:Tag ;
     rdfs:label "Primary" .
 
-tag:Rack a brick:Tag ;
-    rdfs:label "Rack" .
-
 tag:Rain a brick:Tag ;
     rdfs:label "Rain" .
 
@@ -5777,6 +5826,9 @@ tag:Reverse a brick:Tag ;
 
 tag:Rotation a brick:Tag ;
     rdfs:label "Rotation" .
+
+tag:Scheduling a brick:Tag ;
+    rdfs:label "Scheduling" .
 
 tag:Separator a brick:Tag ;
     rdfs:label "Separator" .
@@ -5837,9 +5889,6 @@ tag:Trip a brick:Tag ;
 
 tag:UPS a brick:Tag ;
     rdfs:label "UPS" .
-
-tag:Unit a brick:Tag ;
-    rdfs:label "Unit" .
 
 tag:Up a brick:Tag ;
     rdfs:label "Up" .
@@ -6033,6 +6082,19 @@ switch:Induction_Unit a owl:Class ;
     brick:hasAssociatedTag tag:Induction,
         tag:Unit .
 
+switch:Interface a owl:Class ;
+    rdfs:label "Interface" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "A control panel, control interface, or simply interface, was a means by which a person operating a particular piece of equipment could instruct the device or system as to what they desired, and the item being controlled could respond accordingly" ;
+    brick:hasAssociatedTag tag:Interface .
+
+switch:Leak_Detector a owl:Class ;
+    rdfs:label "Leak Detector" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Detector,
+        tag:Leak .
+
 switch:Leaving_Pressure_Sensor a owl:Class ;
     rdfs:label "Leaving Pressure Sensor" ;
     rdfs:subClassOf brick:Pressure_Sensor ;
@@ -6097,6 +6159,21 @@ switch:Ozone_Sensor a owl:Class ;
     brick:hasAssociatedTag tag:Ozone,
         tag:Sensor .
 
+switch:People_Counter a owl:Class ;
+    rdfs:label "People Counter" ;
+    rdfs:subClassOf switch:Zone_Sensor_Equipment ;
+    skos:definition "" ;
+    brick:hasAssociatedTag tag:Counter,
+        tag:People .
+
+switch:Power_Distribution_Unit a owl:Class ;
+    rdfs:label "Power Distribution Unit" ;
+    rdfs:subClassOf brick:Electrical_Equipment ;
+    skos:definition "(PDU) A device fitted with multiple outputs designed to distribute electric power, especially to racks of computers and networking equipment located within a data center" ;
+    brick:hasAssociatedTag tag:Distribution,
+        tag:Power,
+        tag:Unit .
+
 switch:Power_Load_Sensor a owl:Class ;
     rdfs:label "Power Load Sensor" ;
     rdfs:subClassOf switch:Load_Sensor ;
@@ -6157,6 +6234,14 @@ switch:Ripple_Voltage_Sensor a owl:Class ;
         tag:Sensor,
         tag:Voltage .
 
+switch:Room_Panel a owl:Class ;
+    rdfs:label "Room Panel" ;
+    rdfs:subClassOf switch:Panel,
+        switch:Touchpanel ;
+    skos:definition "Interface that is mounted in a room to show the occupants information about the space or other relevant content. Some panels may provide control options for occupant based interaction." ;
+    brick:hasAssociatedTag tag:Panel,
+        tag:Room .
+
 switch:Run_Count_Setpoint a owl:Class ;
     rdfs:label "Run Count Setpoint" ;
     rdfs:subClassOf switch:Count_Setpoint ;
@@ -6171,6 +6256,12 @@ switch:SO2_Sensor a owl:Class ;
     skos:definition "" ;
     brick:hasAssociatedTag tag:SO2,
         tag:Sensor .
+
+switch:Touchpanel a owl:Class ;
+    rdfs:label "Touchpanel" ;
+    rdfs:subClassOf switch:Panel ;
+    skos:definition "a.k.a Touchscreen. Interface that translate the position of an input in a physical reference space to an input in a digital space" ;
+    brick:hasAssociatedTag tag:Touchpanel .
 
 switch:Valve_Position_Command a owl:Class ;
     rdfs:label "Valve Position Command" ;
@@ -6306,17 +6397,20 @@ tag:Cooldown a brick:Tag ;
 tag:Cooled a brick:Tag ;
     rdfs:label "Cooled" .
 
+tag:Counter a brick:Tag ;
+    rdfs:label "Counter" .
+
 tag:DHW a brick:Tag ;
     rdfs:label "DHW" .
 
 tag:Dehumdification a brick:Tag ;
     rdfs:label "Dehumdification" .
 
+tag:Detector a brick:Tag ;
+    rdfs:label "Detector" .
+
 tag:Disconnect a brick:Tag ;
     rdfs:label "Disconnect" .
-
-tag:Distribution a brick:Tag ;
-    rdfs:label "Distribution" .
 
 tag:EEV a brick:Tag ;
     rdfs:label "EEV" .
@@ -6344,6 +6438,9 @@ tag:Inlet a brick:Tag ;
 
 tag:Lag a brick:Tag ;
     rdfs:label "Lag" .
+
+tag:Leak a brick:Tag ;
+    rdfs:label "Leak" .
 
 tag:Main a brick:Tag ;
     rdfs:label "Main" .
@@ -6383,6 +6480,9 @@ tag:Preheat a brick:Tag ;
 
 tag:Quality a brick:Tag ;
     rdfs:label "Quality" .
+
+tag:Rack a brick:Tag ;
+    rdfs:label "Rack" .
 
 tag:Radon a brick:Tag ;
     rdfs:label "Radon" .
@@ -6631,6 +6731,12 @@ switch:Operational_Stage_Count_Sensor a owl:Class ;
         tag:Sensor,
         tag:Stage .
 
+switch:Panel a owl:Class ;
+    rdfs:label "Panel" ;
+    rdfs:subClassOf switch:Interface ;
+    skos:definition "Interface that shows the state of some system via a screen. May be touch or have physical buttons to interact with the content." ;
+    brick:hasAssociatedTag tag:Panel .
+
 switch:Position_Setpoint a owl:Class ;
     rdfs:label "Position Setpoint" ;
     rdfs:subClassOf brick:Setpoint ;
@@ -6719,14 +6825,6 @@ switch:Zone_Air_Temperature_Deadband_Setpoint a owl:Class ;
         tag:Temperature,
         tag:Zone .
 
-switch:Zone_Sensor_Equipment a owl:Class ;
-    rdfs:label "Zone Sensor" ;
-    rdfs:subClassOf brick:Equipment ;
-    skos:definition "Independent sensors that do not belong to a typically equipment entity. Typically stand-alone or third-party sensors." ;
-    brick:hasAssociatedTag tag:Equipment,
-        tag:Sensor,
-        tag:Zone .
-
 tag:Adjust a brick:Tag ;
     rdfs:label "Adjust" .
 
@@ -6763,6 +6861,9 @@ tag:Operational a brick:Tag ;
 tag:Optimum a brick:Tag ;
     rdfs:label "Optimum" .
 
+tag:Panel a brick:Tag ;
+    rdfs:label "Panel" .
+
 tag:Purge a brick:Tag ;
     rdfs:label "Purge" .
 
@@ -6783,6 +6884,9 @@ tag:Staging a brick:Tag ;
 
 tag:Transfer a brick:Tag ;
     rdfs:label "Transfer" .
+
+tag:Unit a brick:Tag ;
+    rdfs:label "Unit" .
 
 switch:Air_Distribution a owl:Class ;
     rdfs:label "Air Distribution" ;
@@ -6992,6 +7096,14 @@ switch:Zone_Air_Pressure_Sensor a owl:Class ;
         tag:Sensor,
         tag:Zone .
 
+switch:Zone_Sensor_Equipment a owl:Class ;
+    rdfs:label "Zone Sensor" ;
+    rdfs:subClassOf brick:Equipment ;
+    skos:definition "Independent sensors that do not belong to a typically equipment entity. Typically stand-alone or third-party sensors." ;
+    brick:hasAssociatedTag tag:Equipment,
+        tag:Sensor,
+        tag:Zone .
+
 tag:Basin a brick:Tag ;
     rdfs:label "Basin" .
 
@@ -7003,6 +7115,9 @@ tag:Cold a brick:Tag ;
 
 tag:Delivered a brick:Tag ;
     rdfs:label "Delivered" .
+
+tag:Distribution a brick:Tag ;
+    rdfs:label "Distribution" .
 
 tag:Early a brick:Tag ;
     rdfs:label "Early" .
